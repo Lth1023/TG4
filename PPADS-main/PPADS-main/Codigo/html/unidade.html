@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChuteSalGB</title>
+    <style>
+        /* Estilos para o cabeçalho */
+        header {
+            background-color: #ffffff;
+            color: #4682A9;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav li {
+            margin-right: 20px;
+        }
+
+        /* Estilos para o corpo da página */
+        body {
+            font-family: "Palanquin Dark", Arial, sans-serif; /* Usando Palanquin Dark como fonte principal e Arial como reserva */
+            padding: 20px;
+            background-color:#E3F4F4 ;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+        h2{
+          text-align: center; 
+          color:#4682A9; 
+        }
+
+        form {
+            border: none;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top:50px;
+            background-color: #FFFFFF; /* Fundo azul claro */
+        }
+
+        input[type="text"] {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none; /* Remover a borda */
+            border-radius: 3px;
+            background-color:#E3F4F4;
+        }
+
+        button {
+            background-color: #E3F4F4;
+            color: #4682A9;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button.cancel {
+            background-color: #e3f4f4;
+        }
+
+        /* Estilos para o link Quadras */
+        nav ul li a {
+            text-decoration: none; /* Remover sublinhado */
+            color: #4682A9; /* Cor do texto azul */
+        }
+
+        /* Estilos para a tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 18px; /* Tamanho da fonte para a tabela */
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            color: #4682A9; /* Cor do texto na tabela */
+        }
+
+        /* Estilos para os botões de ação */
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .action-buttons button {
+            width: 48%;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                margin-top: 10px;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            form {
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>ChuteSalGB</h1>
+        </div>
+        <nav>
+            <ul>
+                <li ><a  href="#">Quadras</a></li>
+                <li><a  href="#">Campeonatos</a></li>
+                <li><a  href="#">Jogos</a></li>
+                <li><a  href="#">Times</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <form id="unidade-form">
+            <h2>Criar Unidade</h2>
+            <input type="text" id="nome-unidade" name="nome-unidade" placeholder="Nome da Unidade" required>
+            <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
+            <input type="text" id="quadras" name="quadras" placeholder="Adicionar Quadras">
+            <button type="button" id="criar-unidade">Criar Unidade</button>
+            <button type="button" class="cancel">Cancelar Criação</button>
+        </form>
+
+        <!-- Tabela de Unidades -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nome da Unidade</th>
+                    <th>Endereço</th>
+                    <th>Quadras</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-unidades">
+                <tr>
+                    <td>001</td>
+                    <td contenteditable="true">Unidade A</td>
+                    <td contenteditable="true">Rua 123, Cidade A</td>
+                    <td contenteditable="true">Quadra 1, Quadra 2</td>
+                    <td>
+                        <button class="editar" onclick="editarUnidade(this)">Editar</button>
+                        <button class="excluir" onclick="excluirUnidade(this)">Excluir</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td contenteditable="true">Unidade B</td>
+                    <td contenteditable="true">Avenida XYZ, Cidade B</td>
+                    <td contenteditable="true">Quadra 3, Quadra 4</td>
+                    <td>
+                        <button class="editar" onclick="editarUnidade(this)">Editar</button>
+                        <button class="excluir" onclick="excluirUnidade(this)">Excluir</button>
+                    </td>
+                </tr>
+                <!-- Adicionei duas unidades extras aqui -->
+                <tr>
+                    <td>003</td>
+                    <td contenteditable="true">Unidade C</td>
+                    <td contenteditable="true">Av. Principal, Cidade C</td>
+                    <td contenteditable="true">Quadra 5, Quadra 6</td>
+                    <td>
+                        <button class="editar" onclick="editarUnidade(this)">Editar</button>
+                        <button class="excluir" onclick="excluirUnidade(this)">Excluir</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>004</td>
+                    <td contenteditable="true">Unidade D</td>
+                    <td contenteditable="true">Rua ABC, Cidade D</td>
+                    <td contenteditable="true">Quadra 7, Quadra 8</td>
+                    <td>
+                        <button class="editar" onclick="editarUnidade(this)">Editar</button>
+                        <button class="excluir" onclick="excluirUnidade(this)">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function editarUnidade(button) {
+            const row = button.parentNode.parentNode;
+            const cells = row.cells;
+            const codigo = cells[0].textContent;
+
+            if (button.textContent === "Editar") {
+                // Habilita a edição das células
+                for (let i = 1; i < cells.length - 1; i++) {
+                    cells[i].setAttribute("contenteditable", "true");
+                }
+                button.textContent = "Salvar";
+            } else {
+                // Desabilita a edição das células
+                for (let i = 1; i < cells.length - 1; i++) {
+                    cells[i].setAttribute("contenteditable", "false");
+                }
+                button.textContent = "Editar";
+                // Aqui você pode adicionar lógica para salvar as alterações no servidor, se necessário
+            }
+        }
+
+        function excluirUnidade(button) {
+            const row = button.parentNode.parentNode;
+            row.remove();
+        }
+
+        document.getElementById("criar-unidade").addEventListener("click", () => {
+            const nome = document.getElementById("nome-unidade").value;
+            const endereco = document.getElementById("endereco").value;
+            const quadras = document.getElementById("quadras").value;
+
+            const table = document.getElementById("tabela-unidades");
+            const newRow = table.insertRow();
+            newRow.innerHTML = `
+                <td>${table.rows.length}</td>
+                <td contenteditable="true">${nome}</td>
+                <td contenteditable="true">${endereco}</td>
+                <td contenteditable="true">${quadras}</td>
+                <td>
+                    <button class="editar" onclick="editarUnidade(this)">Editar</button>
+                    <button class="excluir" onclick="excluirUnidade(this)">Excluir</button>
+                </td>
+            `;
+
+            document.getElementById("nome-unidade").value = "";
+            document.getElementById("endereco").value = "";
+            document.getElementById("quadras").value = "";
+        });
+    </script>
+</body>
+</html>

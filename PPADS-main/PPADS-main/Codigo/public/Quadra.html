@@ -1,0 +1,59 @@
+
+<html lang="pt-br">
+	<head>
+		<title>Quadras</title>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+	</head>
+  <body>
+   <header class="header">
+      <a href="index.html" alt="Home" class="logo">ChuteSal</a>
+      <div class="links">
+      <a href="Unidade.html" class="linkCadastrar">Unidades</a>
+      <a href="Quadra.html" class="linkEditar">Quadras</a>
+      <a href="Campeonato.html" class="linkMostrar">Campeonatos</a>
+      <a href="Jogo.html" class="linkCancelar">Jogos</a>
+      </div>
+    </header>
+    <div class="body">
+      <form>
+          <h1>Quadra</h1>
+        <p><label class="idQuadra">ID<input type="text" id="idQuadra"/></label></p>
+          <p><label class="cod_Quadra">Cod_Quadra 
+            <input type="text" id="cod_Quadra"></input>
+          </label></p>
+          <p><label class="nome">Nome
+            <input type="nome" id="nome"></input>
+          </label></p>
+          <div class="IC">
+          <p><label class="letra">Letra
+            <input type="text" id="letra"></input>
+          </label></p>
+          <p><label class="cod_Unidade">Cod_Unidade
+            <input type="text" id="cod_Unidade"></input>
+          </label></p>
+          </div>
+          <div class="botao">
+          <button onclick="cadastrarQuadra()">Cadastrar</button>
+          <button onclick="updateQuadra()">Editar Quadra</button>
+          <button onclick="cancelarQuadra()">Deletar</button>
+          <input type="reset" value="Cancelar"/>
+          </div>
+      </form>
+    </div>
+    <div id="quadras"></div>
+    <footer>
+      <p>Desenvolvido por: Henrique Huang, Paulo Vinícius Yasuhiro Goma, Leo, Jian Fengchen</p>
+      <p>TIA: 42103894, 42123046, 32370121, 42126436</p>
+    </footer>
+    <script src="./script.js"></script>
+    <script>
+      window.onload = readQuadra(true);
+  </script>
+   </body>
+</html>
